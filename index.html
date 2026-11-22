@@ -10,21 +10,22 @@
     <title>carta para aye</title>
 </head>
 <body>
-    <h1 id="titulo-principal">¡Te amo mucho! ❤️</h1>
+    <h1> ¡te amo mucho¡ ❤️</h1>
     
     <div class="contenedor">
         <div class="envoltura-sobre" id="envoltura-sobre">
             <div class="sobre">
                 <div class="carta">
                     <div class="contenido">
-                        <strong>Querida Aye,</strong>
+                        <strong>Querida aye </strong>
                         <p>
                             Estaba pensando en ti y quise escribirte esto para salir un poco de la rutina. A veces las palabras en el chat pasan rápido, pero quería dejarte por aquí algo que se quede guardado y que refleje lo mucho que te valoro.
                             <br><br>
-                            Me encanta todo lo que compartimos, la confianza que tenemos y cómo logras sacarme una sonrisa incluso en los días más pesados. Contigo todo fluye de una manera muy bonita y natural, y disfruto cada instante que pasamos juntos.
+                Me encanta todo lo que compartimos, la confianza que tenemos y cómo logras sacarme una sonrisa incluso en los días más pesados. Contigo todo fluye de una manera muy bonita y natural, y disfruto cada instante que pasamos juntos, ya sea hablando de cualquier tontería.
                             <br><br>
-                            Gracias por ser esa persona tan especial en mi vida, por tu cariño y por cada detalle. Eres increíble, y solo quería recordarte lo mucho que te quiero.
+            Gracias por ser esa persona tan especial en mi vida, por tu cariño y por cada detalle. Eres increíble, y solo quería recordarte lo mucho que te quiero y lo feliz que me hace tenerte en mi día a día.
                         </p>
+
                         <p>Con todo mi cariño,</p>
                     </div>
                 </div>
@@ -35,9 +36,14 @@
         </div>
     </div>
 
-    <!-- El nuevo mensaje que aparecerá después de cerrar la carta -->
-    <div id="nuevo-mensaje-oculto">
-        <p>✨ ¡Eres lo mejor que me ha pasado! Te adoro ❤️ ✨</p>
+    <div id="modal-pregunta" class="modal-oculto">
+        <div class="modal-contenido">
+            <h2>¿Quieres ser mi novia? ❤️</h2>
+            <div class="botones">
+                <button id="btn-si">¡SÍ! 😍</button>
+                <button id="btn-no">No... 😢</button>
+            </div>
+        </div>
     </div>
 
     <audio id="musica-carta" loop>
@@ -45,38 +51,6 @@
         Tu navegador no soporta el audio.
     </audio>
 
-    <!-- Script de control para los clics -->
-    <script>
-        const envolturaSobre = document.getElementById('envoltura-sobre');
-        const musica = document.getElementById('musica-carta');
-        const nuevoMensaje = document.getElementById('nuevo-mensaje-oculto');
-        const titulo = document.getElementById('titulo-principal');
-
-        let isOpen = false;
-
-        envolturaSobre.addEventListener('click', () => {
-            isOpen = !isOpen; // Cambia el estado (si está abierto se cierra, si está cerrado se abre)
-
-            if (isOpen) {
-                // PRIMER CLIC: Se abre la carta
-                envolturaSobre.classList.add('abierto');
-                nuevoMensaje.style.display = 'none'; // Oculta el mensaje extra si estaba abierto
-                
-                // Intenta reproducir la música
-                if (musica) {
-                    musica.play().catch(e => console.log("Audio requiere interacción previa"));
-                }
-            } else {
-                // SEGUNDO CLIC: Se cierra la carta y aparece el nuevo mensaje
-                envolturaSobre.classList.remove('abierto');
-                
-                // Espera a que termine de bajar la carta para mostrar el nuevo mensaje con estilo
-                setTimeout(() => {
-                    nuevoMensaje.style.display = 'block';
-                    titulo.style.display = 'none'; // Opcional: oculta el título de arriba para limpiar la pantalla
-                }, 400);
-            }
-        });
-    </script>
+    <script src="script_v2.js"></script>
 </body>
 </html>
